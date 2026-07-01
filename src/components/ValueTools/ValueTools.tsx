@@ -1,13 +1,12 @@
 import { motion } from 'motion/react';
 import Section, { SectionHeading } from '../Section';
-import { Image, Globe, Sparkles, Download, FileText } from 'lucide-react';
+import { Image, Globe, Sparkles, Download } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '../../lib/utils';
 import ImageGeneratorTool from './tools/ImageGeneratorTool';
 import TranslationTool from './tools/TranslationTool';
 import WritingAssistantTool from './tools/WritingAssistantTool';
 import RemoveBackgroundTool from './tools/RemoveBackgroundTool';
-import OCRTool from './tools/OCRTool';
 
 interface Tool {
   id: string;
@@ -29,14 +28,6 @@ export default function ValueTools() {
       description: 'Generate AI images instantly.',
       color: 'from-purple-400 to-pink-400',
       component: <ImageGeneratorTool />,
-    },
-    {
-      id: 'ocr',
-      name: 'Text Extractor',
-      icon: <FileText size={24} />,
-      description: 'Extract text from images.',
-      color: 'from-blue-400 to-cyan-400',
-      component: <OCRTool />,
     },
     {
       id: 'translate',
@@ -76,7 +67,6 @@ export default function ValueTools() {
         />
 
         <div className="grid gap-8">
-          {/* Tool Navigation */}
           <div className="flex flex-wrap gap-3 justify-center">
             {tools.map((tool) => (
               <motion.button
@@ -99,7 +89,6 @@ export default function ValueTools() {
             ))}
           </div>
 
-          {/* Tool Display Area */}
           <motion.div
             key={activeTab}
             initial={{ opacity: 0, y: 10 }}
@@ -108,7 +97,6 @@ export default function ValueTools() {
             transition={{ duration: 0.3 }}
             className="glass-panel rounded-2xl p-8 md:p-12 min-h-[600px] flex flex-col"
           >
-            {/* Header */}
             <div className="mb-8 pb-6 border-b border-white/10">
               <h3 className="text-3xl font-bold mb-2 text-white">
                 {activeTool.name}
@@ -118,13 +106,11 @@ export default function ValueTools() {
               </p>
             </div>
 
-            {/* Tool Component */}
             <div className="flex-1">
               {activeTool.component}
             </div>
           </motion.div>
 
-          {/* Value Proposition */}
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             {[
               {
