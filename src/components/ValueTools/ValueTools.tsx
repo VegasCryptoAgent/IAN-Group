@@ -1,12 +1,13 @@
 import { motion } from 'motion/react';
 import Section, { SectionHeading } from '../Section';
-import { Image, Globe, Sparkles, Download } from 'lucide-react';
+import { Image, Globe, Sparkles, Download, BarChart3 } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '../../lib/utils';
 import ImageGeneratorTool from './tools/ImageGeneratorTool';
 import TranslationTool from './tools/TranslationTool';
 import WritingAssistantTool from './tools/WritingAssistantTool';
 import RemoveBackgroundTool from './tools/RemoveBackgroundTool';
+import TextAnalyzerTool from './tools/TextAnalyzerTool';
 
 interface Tool {
   id: string;
@@ -52,6 +53,14 @@ export default function ValueTools() {
       description: 'Remove image backgrounds.',
       color: 'from-red-400 to-pink-500',
       component: <RemoveBackgroundTool />,
+    },
+    {
+      id: 'analyzer',
+      name: 'Text Analyzer',
+      icon: <BarChart3 size={24} />,
+      description: 'Analyze words, characters, reading time.',
+      color: 'from-cyan-400 to-blue-500',
+      component: <TextAnalyzerTool />,
     },
   ];
 
