@@ -1,12 +1,13 @@
 import { motion } from 'motion/react';
 import Section, { SectionHeading } from '../Section';
-import { Image, Globe, Sparkles, Download } from 'lucide-react';
+import { Image, Globe, Sparkles, Download, FileText } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '../../lib/utils';
 import ImageGeneratorTool from './tools/ImageGeneratorTool';
 import TranslationTool from './tools/TranslationTool';
 import WritingAssistantTool from './tools/WritingAssistantTool';
 import RemoveBackgroundTool from './tools/RemoveBackgroundTool';
+import OCRTool from './tools/OCRTool';
 
 interface Tool {
   id: string;
@@ -28,6 +29,14 @@ export default function ValueTools() {
       description: 'Generate AI images instantly.',
       color: 'from-purple-400 to-pink-400',
       component: <ImageGeneratorTool />,
+    },
+    {
+      id: 'ocr',
+      name: 'Text Extractor',
+      icon: <FileText size={24} />,
+      description: 'Extract text from images.',
+      color: 'from-blue-400 to-cyan-400',
+      component: <OCRTool />,
     },
     {
       id: 'translate',
