@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2, Zap, TrendingUp, Target, BarChart3, Globe, Sh
 import { LOGOS } from '../constants';
 import Section from '../components/Section';
 import CalendlyEmbed from '../components/CalendlyEmbed';
+import ValueTools from '../components/ValueTools/ValueTools';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import { useRef } from 'react';
@@ -352,6 +353,9 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
+      {/* FREE AI TOOLS */}
+      <ValueTools />
 
       {/* CTA - MASSIVE */}
       <Section className="min-h-screen flex items-center justify-center bg-electric text-obsidian">
