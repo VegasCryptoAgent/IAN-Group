@@ -1,12 +1,12 @@
 import { motion } from 'motion/react';
 import Section, { SectionHeading } from '../Section';
-import { Image, Globe, Sparkles, Download, BarChart3 } from 'lucide-react';
+import { Image, Globe, Sparkles, Palette, BarChart3 } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '../../lib/utils';
 import ImageGeneratorTool from './tools/ImageGeneratorTool';
 import TranslationTool from './tools/TranslationTool';
 import WritingAssistantTool from './tools/WritingAssistantTool';
-import RemoveBackgroundTool from './tools/RemoveBackgroundTool';
+import ColorGeneratorTool from './tools/ColorGeneratorTool';
 import TextAnalyzerTool from './tools/TextAnalyzerTool';
 
 interface Tool {
@@ -32,7 +32,7 @@ export default function ValueTools() {
     },
     {
       id: 'translate',
-      name: 'Global Translator',
+      name: 'Translator',
       icon: <Globe size={24} />,
       description: 'Translate to 12+ languages.',
       color: 'from-green-400 to-emerald-400',
@@ -47,18 +47,18 @@ export default function ValueTools() {
       component: <WritingAssistantTool />,
     },
     {
-      id: 'background',
-      name: 'Remove Background',
-      icon: <Download size={24} />,
-      description: 'Remove image backgrounds.',
-      color: 'from-red-400 to-pink-500',
-      component: <RemoveBackgroundTool />,
+      id: 'color',
+      name: 'Color Generator',
+      icon: <Palette size={24} />,
+      description: 'Create color palettes instantly.',
+      color: 'from-pink-400 to-purple-500',
+      component: <ColorGeneratorTool />,
     },
     {
       id: 'analyzer',
       name: 'Text Analyzer',
       icon: <BarChart3 size={24} />,
-      description: 'Analyze words, characters, reading time.',
+      description: 'Analyze words, reading time.',
       color: 'from-cyan-400 to-blue-500',
       component: <TextAnalyzerTool />,
     },
