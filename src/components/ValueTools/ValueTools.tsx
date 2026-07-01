@@ -1,12 +1,11 @@
 import { motion } from 'motion/react';
 import Section, { SectionHeading } from '../Section';
-import { Image, Globe, FileText, Sparkles, Download } from 'lucide-react';
+import { Image, Globe, Sparkles, Download } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '../../lib/utils';
 import ImageGeneratorTool from './tools/ImageGeneratorTool';
 import TranslationTool from './tools/TranslationTool';
 import WritingAssistantTool from './tools/WritingAssistantTool';
-import OCRTool from './tools/OCRTool';
 import RemoveBackgroundTool from './tools/RemoveBackgroundTool';
 
 interface Tool {
@@ -26,7 +25,7 @@ export default function ValueTools() {
       id: 'image',
       name: 'Image Generation',
       icon: <Image size={24} />,
-      description: 'Generate AI images. No credit card required.',
+      description: 'Generate AI images instantly.',
       color: 'from-purple-400 to-pink-400',
       component: <ImageGeneratorTool />,
     },
@@ -34,7 +33,7 @@ export default function ValueTools() {
       id: 'translate',
       name: 'Global Translator',
       icon: <Globe size={24} />,
-      description: 'Translate to 12+ languages instantly.',
+      description: 'Translate to 12+ languages.',
       color: 'from-green-400 to-emerald-400',
       component: <TranslationTool />,
     },
@@ -42,23 +41,15 @@ export default function ValueTools() {
       id: 'writer',
       name: 'Writing Optimizer',
       icon: <Sparkles size={24} />,
-      description: 'Grammar, style, and clarity fixes.',
+      description: 'Grammar and style fixes.',
       color: 'from-amber-400 to-orange-400',
       component: <WritingAssistantTool />,
-    },
-    {
-      id: 'ocr',
-      name: 'OCR Text Extractor',
-      icon: <FileText size={24} />,
-      description: 'Extract text from images and PDFs.',
-      color: 'from-blue-400 to-cyan-400',
-      component: <OCRTool />,
     },
     {
       id: 'background',
       name: 'Remove Background',
       icon: <Download size={24} />,
-      description: 'Remove image backgrounds instantly.',
+      description: 'Remove image backgrounds.',
       color: 'from-red-400 to-pink-500',
       component: <RemoveBackgroundTool />,
     },
@@ -71,7 +62,7 @@ export default function ValueTools() {
       <div className="space-y-12">
         <SectionHeading
           title="Free AI Tools"
-          subtitle="Professional-grade tools with zero cost. No credit card. No limits."
+          subtitle="Professional tools. Zero cost. No credit card ever."
           centered
         />
 
@@ -129,15 +120,15 @@ export default function ValueTools() {
             {[
               {
                 title: 'No Credit Card',
-                desc: 'All tools are completely free. No payment needed ever.',
+                desc: 'Completely free. No payment ever.',
               },
               {
-                title: 'Instant Access',
-                desc: 'Start using immediately. No signup, no waiting.',
+                title: 'No Sign-Up',
+                desc: 'Start using instantly.',
               },
               {
                 title: 'Production Grade',
-                desc: 'Built with trusted open-source and public APIs.',
+                desc: 'Trusted open-source tools.',
               },
             ].map((item, i) => (
               <motion.div
