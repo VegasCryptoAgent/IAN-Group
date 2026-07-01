@@ -9,6 +9,7 @@ import Accelerator from './pages/Accelerator';
 import SixFrameStudio from './pages/SixFrameStudio';
 import CaseStudies from './pages/CaseStudies';
 import Pitch from './pages/Pitch';
+import FreeAITools from './pages/FreeAITools';
 import CustomCursor from './components/CustomCursor';
 import Chatbot from './components/Chatbot';
 
@@ -33,6 +34,7 @@ export default function App() {
         <main className="flex-grow relative z-10">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/free-ai-tools" element={<FreeAITools />} />
             <Route path="/consulting" element={<Consulting />} />
             <Route path="/venture-studio" element={<VentureStudio />} />
             <Route path="/accelerator" element={<Accelerator />} />
