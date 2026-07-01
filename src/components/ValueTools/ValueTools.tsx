@@ -1,13 +1,13 @@
 import { motion } from 'motion/react';
 import Section, { SectionHeading } from '../Section';
-import { Zap, Image, Globe, FileText, Sparkles } from 'lucide-react';
+import { Image, Globe, FileText, Sparkles, Download } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '../../lib/utils';
-import GeminiChatTool from './tools/GeminiChatTool';
 import ImageGeneratorTool from './tools/ImageGeneratorTool';
 import TranslationTool from './tools/TranslationTool';
 import WritingAssistantTool from './tools/WritingAssistantTool';
-import GroqChatTool from './tools/GroqChatTool';
+import OCRTool from './tools/OCRTool';
+import RemoveBackgroundTool from './tools/RemoveBackgroundTool';
 
 interface Tool {
   id: string;
@@ -19,30 +19,14 @@ interface Tool {
 }
 
 export default function ValueTools() {
-  const [activeTab, setActiveTab] = useState('groq');
+  const [activeTab, setActiveTab] = useState('image');
 
   const tools: Tool[] = [
-    {
-      id: 'groq',
-      name: 'Lightning Chat',
-      icon: <Zap size={24} />,
-      description: 'Enterprise-grade AI chat powered by Groq. Lightning-fast responses.',
-      color: 'from-electric to-cyan-400',
-      component: <GroqChatTool />,
-    },
-    {
-      id: 'gemini',
-      name: 'Document Intelligence',
-      icon: <FileText size={24} />,
-      description: 'Upload documents or images. Ask questions about your content.',
-      color: 'from-blue-400 to-electric',
-      component: <GeminiChatTool />,
-    },
     {
       id: 'image',
       name: 'Image Generation',
       icon: <Image size={24} />,
-      description: 'Generate stunning AI images instantly. No signup required.',
+      description: 'Generate AI images. No credit card required.',
       color: 'from-purple-400 to-pink-400',
       component: <ImageGeneratorTool />,
     },
@@ -50,7 +34,7 @@ export default function ValueTools() {
       id: 'translate',
       name: 'Global Translator',
       icon: <Globe size={24} />,
-      description: 'Break language barriers. Translate text instantly.',
+      description: 'Translate to 12+ languages instantly.',
       color: 'from-green-400 to-emerald-400',
       component: <TranslationTool />,
     },
@@ -58,9 +42,25 @@ export default function ValueTools() {
       id: 'writer',
       name: 'Writing Optimizer',
       icon: <Sparkles size={24} />,
-      description: 'Enhance your writing. Grammar, style, and clarity fixes.',
+      description: 'Grammar, style, and clarity fixes.',
       color: 'from-amber-400 to-orange-400',
       component: <WritingAssistantTool />,
+    },
+    {
+      id: 'ocr',
+      name: 'OCR Text Extractor',
+      icon: <FileText size={24} />,
+      description: 'Extract text from images and PDFs.',
+      color: 'from-blue-400 to-cyan-400',
+      component: <OCRTool />,
+    },
+    {
+      id: 'background',
+      name: 'Remove Background',
+      icon: <Download size={24} />,
+      description: 'Remove image backgrounds instantly.',
+      color: 'from-red-400 to-pink-500',
+      component: <RemoveBackgroundTool />,
     },
   ];
 
@@ -71,7 +71,7 @@ export default function ValueTools() {
       <div className="space-y-12">
         <SectionHeading
           title="Free AI Tools"
-          subtitle="Explore enterprise-grade tools designed to multiply your team's capabilities. No credit card required."
+          subtitle="Professional-grade tools with zero cost. No credit card. No limits."
           centered
         />
 
@@ -129,15 +129,15 @@ export default function ValueTools() {
             {[
               {
                 title: 'No Credit Card',
-                desc: 'All tools are completely free to use. No payment needed.',
+                desc: 'All tools are completely free. No payment needed ever.',
               },
               {
                 title: 'Instant Access',
-                desc: 'Start using immediately. No complex setup or configuration.',
+                desc: 'Start using immediately. No signup, no waiting.',
               },
               {
-                title: 'Enterprise Grade',
-                desc: 'Built with production-ready infrastructure and APIs.',
+                title: 'Production Grade',
+                desc: 'Built with trusted open-source and public APIs.',
               },
             ].map((item, i) => (
               <motion.div
